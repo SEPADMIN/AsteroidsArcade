@@ -5,8 +5,11 @@
 [Bb]uilds/
 [Ll]ogs/
 
+[Rr]elease/
+[Aa]ssets/Plugins/
+
 # Uncomment this line if you wish to ignore the asset store tools plugin
-# [Aa]ssets/AssetStoreTools*
+[Aa]ssets/AssetStoreTools*
 
 # Visual Studio cache directory
 .vs/
