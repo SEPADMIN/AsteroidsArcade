@@ -138,6 +138,7 @@ MonoBehaviour:
   speedModifier: 3
   slowPhaseDuration: 2
   fastPhaseDuration: 3
+  rateOfFire: 4
   bounty: 200
   imageWidth: 65
   imageHeight: 38

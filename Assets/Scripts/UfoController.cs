@@ -7,6 +7,7 @@ public class UfoController : MonoBehaviour
     public float speedModifier;
     public float slowPhaseDuration; //seconds
     public float fastPhaseDuration; //seconds
+    public float rateOfFire; //bullets per second
     public int bounty;
     
     private float _speed;
@@ -34,6 +35,8 @@ public class UfoController : MonoBehaviour
 
         _rb = gameObject.GetComponent<Rigidbody2D>();
         MoveHorizontally();
+
+        Shoot();
     }
     
     void Update()
@@ -44,6 +47,20 @@ public class UfoController : MonoBehaviour
     public void FixedUpdate()
     {
         _rb.MovePosition(_rb.position + _direction * _speed * Time.fixedDeltaTime);
+    }
+
+    private void Shoot()
+    {
+        GameObject newBullet = Instantiate(ResourcesLoader.GetBullet(), transform.position, transform.rotation);
+        newBullet.tag = "EnemyBullet";
+        var spaceshipController = SceneHelper.GetSpaceship().GetComponent<SpaceshipController>();
+        var bulletForce = spaceshipController.bulletForce;
+        var bulletLifeTime = spaceshipController.bulletLifeTime;
+        newBullet.GetComponent<Rigidbody2D>().AddRelativeForce(
+            new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized * bulletForce);
+        Destroy(newBullet, bulletLifeTime);
+        
+        Invoke(nameof(Shoot), 1 / rateOfFire);
     }
 
     private void MoveHorizontally()

@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        //call camera reload before anything else
         ReloadStatics();
     }
 

@@ -110,6 +110,11 @@ public class SpaceshipController : MonoBehaviour
             PlayHitSound();
             Player.LoseLife();
         }
+
+        if (other.tag == "EnemyBullet")
+        {
+            Destroy(other.gameObject);
+        }
     }
     
     private void SetImmortal()

@@ -50,9 +50,9 @@ public static class Player
 
     private static void Reset()
     {
-        Points = 0;
+        Points = 990;
         Lives = 4;
-        _ufoPointsCounter = 0;
+        _ufoPointsCounter = 990;
         PlayerState.State = PlayerState.States.Alive;
     }
 }

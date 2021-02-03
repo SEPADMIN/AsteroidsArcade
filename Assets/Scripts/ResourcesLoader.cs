@@ -8,6 +8,7 @@ public static class ResourcesLoader
     private static GameObject _explosion = null;
     private static GameObject[][] _asteroids;
     private static GameObject _ufo = null;
+    private static GameObject _bullet = null; 
 
     public static void Reload()
     {
@@ -27,6 +28,17 @@ public static class ResourcesLoader
             string stageName = stage.ToString().ToLower();
             obj = Resources.Load<GameObject>("Asteroids/asteroid_" + stageName + "_" + (type + 1));
             _asteroids[(int) stage][type] = obj;
+        }
+        return obj;
+    }
+
+    public static GameObject GetBullet()
+    {
+        var obj = _bullet;
+        if (obj == null)
+        {
+            obj = Resources.Load<GameObject>("bullet");
+            _bullet = obj;
         }
         return obj;
     }
