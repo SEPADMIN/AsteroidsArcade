@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Object = System.Object;
 
 public class TeleportableBehaviour
 {
@@ -22,7 +21,6 @@ public class TeleportableBehaviour
     {
         if (!GameState.IsActive())
         {
-            // GameObject.Destroy(_transform.gameObject);
             return;
         }
         

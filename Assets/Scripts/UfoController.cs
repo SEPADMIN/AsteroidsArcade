@@ -20,6 +20,7 @@ public class UfoController : MonoBehaviour
     public static void Spawn()
     {
         var position = SceneHelper.GetSpawnPosition(Random.Range(3, 6));
+        position.Set(position.x * SceneHelper.GetRandomMultiplier(), position.y); // spawn from left side as well
         var ufo = ResourcesLoader.GetUFO();
         Instantiate(ufo, position, Quaternion.identity);
     }
